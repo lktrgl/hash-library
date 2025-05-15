@@ -11,13 +11,13 @@
 
 // define fixed size integer types
 #ifdef _MSC_VER
-// Windows
-typedef unsigned __int8  uint8_t;
-typedef unsigned __int32 uint32_t;
-typedef unsigned __int64 uint64_t;
+  // Windows
+  typedef unsigned __int8  uint8_t;
+  typedef unsigned __int32 uint32_t;
+  typedef unsigned __int64 uint64_t;
 #else
-// GCC
-#include <stdint.h>
+  // GCC
+  #include <stdint.h>
 #endif
 
 
@@ -44,24 +44,24 @@ public:
   SHA256();
 
   /// compute SHA256 of a memory block
-  std::string operator()(const void* data, size_t numBytes);
+  std::string operator() ( const void* data, size_t numBytes );
   /// compute SHA256 of a string, excluding final zero
-  std::string operator()(const std::string& text);
+  std::string operator() ( const std::string& text );
 
   /// add arbitrary number of bytes
-  void add(const void* data, size_t numBytes);
+  void add ( const void* data, size_t numBytes );
 
   /// return latest hash as 64 hex characters
   std::string getHash();
   /// return latest hash as bytes
-  void        getHash(unsigned char buffer[HashBytes]);
+  void        getHash ( unsigned char buffer[HashBytes] );
 
   /// restart
   void reset();
 
 private:
   /// process 64 bytes
-  void processBlock(const void* data);
+  void processBlock ( const void* data );
   /// process everything left in the internal buffer
   void processBuffer();
 

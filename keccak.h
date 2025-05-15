@@ -11,12 +11,12 @@
 
 // define fixed size integer types
 #ifdef _MSC_VER
-// Windows
-typedef unsigned __int8  uint8_t;
-typedef unsigned __int64 uint64_t;
+  // Windows
+  typedef unsigned __int8  uint8_t;
+  typedef unsigned __int64 uint64_t;
 #else
-// GCC
-#include <stdint.h>
+  // GCC
+  #include <stdint.h>
 #endif
 
 
@@ -40,15 +40,15 @@ public:
   enum Bits { Keccak224 = 224, Keccak256 = 256, Keccak384 = 384, Keccak512 = 512 };
 
   /// same as reset()
-  explicit Keccak(Bits bits = Keccak256);
+  explicit Keccak ( Bits bits = Keccak256 );
 
   /// compute hash of a memory block
-  std::string operator()(const void* data, size_t numBytes);
+  std::string operator() ( const void* data, size_t numBytes );
   /// compute hash of a string, excluding final zero
-  std::string operator()(const std::string& text);
+  std::string operator() ( const std::string& text );
 
   /// add arbitrary number of bytes
-  void add(const void* data, size_t numBytes);
+  void add ( const void* data, size_t numBytes );
 
   /// return latest hash as hex characters
   std::string getHash();
@@ -58,13 +58,14 @@ public:
 
 private:
   /// process a full block
-  void processBlock(const void* data);
+  void processBlock ( const void* data );
   /// process everything left in the internal buffer
   void processBuffer();
 
   /// 1600 bits, stored as 25x64 bit, BlockSize is no more than 1152 bits (Keccak224)
-  enum { StateSize    = 1600 / (8 * 8),
-         MaxBlockSize =  200 - 2 * (224 / 8) };
+  enum { StateSize    = 1600 / ( 8 * 8 ),
+         MaxBlockSize =  200 - 2 * ( 224 / 8 )
+       };
 
   /// hash
   uint64_t m_hash[StateSize];

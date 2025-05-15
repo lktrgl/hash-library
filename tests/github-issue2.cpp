@@ -14,7 +14,7 @@ int main()
 
   std::cout << "SHA1:" << std::endl;
   SHA1 sha1;
-  sha1.add(text.c_str(), text.size());
+  sha1.add ( text.c_str(), text.size() );
 
   std::cout << sha1.getHash() << std::endl;
   std::cout << sha1.getHash() << std::endl;
@@ -24,7 +24,7 @@ int main()
 
   std::cout << "SHA256:" << std::endl;
   SHA256 sha256;
-  sha256.add(text.c_str(), text.size());
+  sha256.add ( text.c_str(), text.size() );
 
   std::cout << sha256.getHash() << std::endl;
   std::cout << sha256.getHash() << std::endl;
@@ -34,7 +34,7 @@ int main()
 
   std::cout << "SHA3:" << std::endl;
   SHA3 sha3;
-  sha3.add(text.c_str(), text.size());
+  sha3.add ( text.c_str(), text.size() );
 
   std::cout << sha3.getHash() << std::endl;
   std::cout << sha3.getHash() << std::endl;
@@ -44,7 +44,7 @@ int main()
 
   std::cout << "Keccak:" << std::endl;
   Keccak keccak;
-  keccak.add(text.c_str(), text.size());
+  keccak.add ( text.c_str(), text.size() );
 
   std::cout << keccak.getHash() << std::endl;
   std::cout << keccak.getHash() << std::endl;
@@ -54,7 +54,7 @@ int main()
 
   std::cout << "MD5:" << std::endl;
   MD5 md5;
-  md5.add(text.c_str(), text.size());
+  md5.add ( text.c_str(), text.size() );
 
   std::cout << md5.getHash() << std::endl;
   std::cout << md5.getHash() << std::endl;
