@@ -272,7 +272,7 @@ void SHA1::processBuffer()
     m_buffer[i] = 0;
   }
 
-  for ( ; i < paddedLength; i++ )
+  for (; i < paddedLength; i++ )
   {
     extra[i - BlockSize] = 0;
   }

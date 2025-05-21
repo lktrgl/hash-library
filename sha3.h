@@ -64,8 +64,8 @@ private:
 
   /// 1600 bits, stored as 25x64 bit, BlockSize is no more than 1152 bits (Keccak224)
   enum { StateSize    = 1600 / ( 8 * 8 ),
-         MaxBlockSize =  200 - 2 * ( 224 / 8 )
-       };
+           MaxBlockSize =  200 - 2 * ( 224 / 8 )
+  };
 
   /// hash
   uint64_t m_hash[StateSize];

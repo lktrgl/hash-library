@@ -80,7 +80,7 @@ inline uint32_t swap ( uint32_t x )
 inline uint32_t f1 ( uint32_t e, uint32_t f, uint32_t g )
 {
   uint32_t term1 = rotate ( e, 6 ) ^ rotate ( e, 11 ) ^ rotate ( e, 25 );
-  uint32_t term2 = ( e & f ) ^ ( ~e & g ); //(g ^ (e & (f ^ g)))
+  uint32_t term2 = ( e & f ) ^ (~e & g ); //(g ^ (e & (f ^ g)))
   return term1 + term2;
 }
 
@@ -191,7 +191,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 24 words
-  for ( ; i < 24; i++ )
+  for (; i < 24; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -232,7 +232,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 32 words
-  for ( ; i < 32; i++ )
+  for (; i < 32; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -273,7 +273,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 40 words
-  for ( ; i < 40; i++ )
+  for (; i < 40; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -314,7 +314,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 48 words
-  for ( ; i < 48; i++ )
+  for (; i < 48; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -355,7 +355,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 56 words
-  for ( ; i < 56; i++ )
+  for (; i < 56; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -396,7 +396,7 @@ void SHA256::processBlock ( const void* data )
   a = x + y;
 
   // extend to 64 words
-  for ( ; i < 64; i++ )
+  for (; i < 64; i++ )
     words[i] = words[i - 16] +
                ( rotate ( words[i - 15],  7 ) ^ rotate ( words[i - 15], 18 ) ^ ( words[i - 15] >>  3 ) ) +
                words[i - 7] +
@@ -544,7 +544,7 @@ void SHA256::processBuffer()
     m_buffer[i] = 0;
   }
 
-  for ( ; i < paddedLength; i++ )
+  for (; i < paddedLength; i++ )
   {
     extra[i - BlockSize] = 0;
   }

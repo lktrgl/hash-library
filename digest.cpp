@@ -56,7 +56,7 @@ int main ( int argc, char** argv )
     // open file
     file.open ( filename.c_str(), std::ios::in | std::ios::binary );
 
-    if ( !file )
+    if (!file )
     {
       std::cerr << "Can't open '" << filename << "'" << std::endl;
       return 2;
@@ -70,7 +70,7 @@ int main ( int argc, char** argv )
   char* buffer = new char[BufferSize];
 
   // process file
-  while ( *input )
+  while (*input )
   {
     input->read ( buffer, BufferSize );
     std::size_t numBytesRead = size_t ( input->gcount() );

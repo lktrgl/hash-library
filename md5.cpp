@@ -75,6 +75,7 @@ inline uint32_t swap ( uint32_t x )
          ( ( x <<  8 ) & 0x00FF0000 ) |
          ( x << 24 );
 }
+
 #endif
 }
 
@@ -302,7 +303,7 @@ void MD5::processBuffer()
     m_buffer[i] = 0;
   }
 
-  for ( ; i < paddedLength; i++ )
+  for (; i < paddedLength; i++ )
   {
     extra[i - BlockSize] = 0;
   }

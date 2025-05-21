@@ -161,7 +161,7 @@ template <typename HashMethod, typename Container>
 int check ( const Container& input, const std::string& expectedResult )
 {
   HashMethod hasher;
-  std::string hash = hasher ( &input[0], input.size() );
+  std::string hash = hasher (&input[0], input.size() );
 
   if ( hash == expectedResult )
   {
@@ -179,7 +179,7 @@ template <typename HashMethod, int HashSize, typename Container>
 int check ( const Container& input, const std::string& expectedResult )
 {
   HashMethod hasher = HashMethod ( typename HashMethod::Bits ( HashSize ) );
-  hasher.add ( &input[0], input.size() );
+  hasher.add (&input[0], input.size() );
   std::string hash = hasher.getHash();
 
   if ( hash == expectedResult )
@@ -189,7 +189,7 @@ int check ( const Container& input, const std::string& expectedResult )
 
   // error
   std::cerr << "hash/" << HashSize << " failed ! expected \"" << expectedResult << "\" but library computed \"" << hash <<
-            "\"" << std::endl;
+               "\"" << std::endl;
   return 1;
 }
 
@@ -198,7 +198,7 @@ int check ( const Container& input, const std::string& expectedResult )
 template <typename HashMethod, typename InputContainer, typename KeyContainer>
 int checkHmac ( const InputContainer& input, const KeyContainer& key, const std::string& expectedResult )
 {
-  std::string hash = hmac<HashMethod> ( &input[0], input.size(), &key[0], key.size() );
+  std::string hash = hmac<HashMethod> (&input[0], input.size(), &key[0], key.size() );
 
   if ( hash == expectedResult )
   {
